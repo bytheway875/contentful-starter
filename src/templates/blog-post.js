@@ -16,7 +16,7 @@ class BlogPostTemplate extends React.Component {
       <div style={{ background: '#fff' }}>
         <Helmet title={`${post.title} | ${siteTitle}`} />
         <div className={heroStyles.hero}>
-          <Img className={heroStyles.heroImage} alt={post.title} sizes={post.heroImage.sizes} />
+          <Img className={heroStyles.heroImage} alt={post.title} fluid={post.heroImage.fluid} />
         </div>
         <div className="wrapper">
           <h1 className="section-headline">{post.title}</h1>
@@ -46,8 +46,8 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        sizes(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulSizes_tracedSVG
+        fluid(maxWidth: 1180, background: "rgb:000000") {
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
       body {
