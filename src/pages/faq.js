@@ -36,8 +36,6 @@ class FAQIndex extends React.Component {
               return (
                 <li key={node.slug}>
                   <h2> {node.title} </h2>
-                  <div> {node.answer.answer} </div>
-
                   <div
                     dangerouslySetInnerHTML={{
                       __html: node.answer.childMarkdownRemark.html,
