@@ -21,7 +21,7 @@ class FAQIndex extends React.Component {
             {categories.map(({node}) => {
               return (
                 <li className={styles.faqLabel} key={node.slug}>
-                  <Link to={`/faq/${node.slug}`}>{node.title}</Link>
+                  <Link to={`/faq/${node.slug}/`}>{node.title}</Link>
                 </li>
               )
             })}
@@ -36,7 +36,9 @@ class FAQIndex extends React.Component {
               return (
                 <li key={node.slug}>
                   <h2> {node.title} </h2>
-                  <p
+                  <div> {node.answer.answer} </div>
+
+                  <div
                     dangerouslySetInnerHTML={{
                       __html: node.answer.childMarkdownRemark.html,
                     }}
@@ -60,6 +62,7 @@ export const pageQuery = graphql`
           title
           slug
           answer {
+            answer
             childMarkdownRemark {
               html
             }
